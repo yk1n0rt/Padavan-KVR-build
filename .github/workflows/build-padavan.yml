@@ -140,10 +140,10 @@ jobs:
         #echo "CONFIG_FIRMWARE_INCLUDE_OPENSSH=y" >> .config
         #echo "CONFIG_FIRMWARE_INCLUDE_OPENSSL_EC=n" >> .config
         #echo "CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_OPENVPN=y" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_SERVER=y" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CLIENT=y" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CMD=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_OPENVPN=n" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_SERVER=n" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CLIENT=n" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CMD=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_SFTP=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_CURL=n" >> .config
         #echo "CONFIG_FIRMWARE_ENABLE_IPV6=n" >> .config
