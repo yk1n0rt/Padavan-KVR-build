@@ -35,7 +35,7 @@ jobs:
         KERNEL: 3.4
       run: |
         if [ $KERNEL = "4.4" ] ; then
-        git clone --depth=1 https://github.com/MeIsReallyBa/padavan-4.4.git /opt/rt-n56u
+        git clone --depth=1 https://github.com/yk1n0rt/Padavan-4.4kvr.git /opt/rt-n56u
         else
         git clone --depth=1 https://github.com/xsd871/Padavan-KVR.git /opt/Padavan-KVR
         fi
@@ -44,8 +44,8 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: K2P_nano-5.0
-        KERNEL: 3.4
+        TNAME: WR330
+        KERNEL: 4.4
       run: |
         cd /opt/Padavan-KVR/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
