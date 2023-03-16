@@ -32,7 +32,7 @@ jobs:
         pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
     - name: Clone source code
       env:
-        KERNEL: 4.4
+        KERNEL: 3.4
       run: |
         if [ $KERNEL = "4.4" ] ; then
         git clone --depth=1 https://github.com/MeIsReallyBa/padavan-4.4.git /opt/rt-n56u
@@ -44,8 +44,8 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: WR1200JS
-        KERNEL: 4.4
+        TNAME: WR300
+        KERNEL: 3.4
       run: |
         cd /opt/Padavan-KVR/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
@@ -105,25 +105,25 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_SSSERVER=n" >> .config #SS server
         echo "CONFIG_FIRMWARE_INCLUDE_DNSFORWARDER=n" >> .config #DNSFORWARDER
         echo "CONFIG_FIRMWARE_INCLUDE_ADBYBY=n" >> .config #adbyby plus+
-        echo "CONFIG_FIRMWARE_INCLUDE_FRPC=n" >> .config #内网穿透FRPC
+        echo "CONFIG_FIRMWARE_INCLUDE_FRPC=" >> .config #内网穿透FRPC
         echo "CONFIG_FIRMWARE_INCLUDE_FRPS=n" >> .config #内网穿透FRPS
         echo "CONFIG_FIRMWARE_INCLUDE_TUNSAFE=n" >> .config #TUNSAFE
-        echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=n" >> .config #阿里DDNS
-        echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNS=n" >> .config #smartdns
-        echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNSBIN=n" >> .config #smartdns二进制文件
-        echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=n" >> .config #集成v2ray执行文件（3.8M左右)，如果不集成，会从网上下载下来执行，不影响正常使用
-        echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=n" >> .config #集成trojan执行文件(1.1M左右)，如果不集成，会从网上下载下来执行，不影响正常使用
+        echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=y" >> .config #阿里DDNS
+        echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNS=y" >> .config #smartdns
+        echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNSBIN=y" >> .config #smartdns二进制文件
+        echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=y" >> .config #集成v2ray执行文件（3.8M左右)，如果不集成，会从网上下载下来执行，不影响正常使用
+        echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=y" >> .config #集成trojan执行文件(1.1M左右)，如果不集成，会从网上下载下来执行，不影响正常使用
         echo "CONFIG_FIRMWARE_INCLUDE_KOOLPROXY=n" >> .config #KP广告过滤
         echo "CONFIG_FIRMWARE_INCLUDE_CADDY=n" >> .config #在线文件管理服务
         echo "CONFIG_FIRMWARE_INCLUDE_CADDYBIN=n" >> .config #集成caddu执行文件，此文件有13M,请注意固件大小。如果不集成，会从网上下载下来执行，不影响正常使用
         echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_SRELAY=n" >> .config #可以不集成
-        echo "CONFIG_FIRMWARE_INCLUDE_WYY=n" >> .config #网易云解锁
-        echo "CONFIG_FIRMWARE_INCLUDE_WYYBIN=n" >> .config #网易云解锁GO版本执行文件（4M多）注意固件超大小,不集成会自动下载
-        echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=n" >> .config #zerotier ~1.3M
+        echo "CONFIG_FIRMWARE_INCLUDE_WYY=y" >> .config #网易云解锁
+        echo "CONFIG_FIRMWARE_INCLUDE_WYYBIN=y" >> .config #网易云解锁GO版本执行文件（4M多）注意固件超大小,不集成会自动下载
+        echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=y" >> .config #zerotier ~1.3M
         echo "CONFIG_FIRMWARE_INCLUDE_NAPT66=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_VLMCSD=n" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_TTYD=n" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_TTYD=y" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_SFE=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_SMBD36=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_NANO=n" >> .config
@@ -133,10 +133,10 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_FFMPEG_NEW=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_EAP_PEAP=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_MINIEAP=n" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_TCPDUMP=n" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_TCPDUMP=y" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_MTR=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_HTOP=n" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_DROPBEAR=n" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_DROPBEAR=y" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_OPENSSH=n" >> .config
         #echo "CONFIG_FIRMWARE_INCLUDE_OPENSSL_EC=n" >> .config
         #echo "CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n" >> .config
