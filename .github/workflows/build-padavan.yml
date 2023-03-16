@@ -44,7 +44,7 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: WR300
+        TNAME: WR1200JS
         KERNEL: 3.4
       run: |
         cd /opt/Padavan-KVR/trunk
